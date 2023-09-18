@@ -29,14 +29,14 @@ import com.example.complexcomposeui.ui.theme.FreeButtonBackground
 @Composable
 fun CustomButton(){
 
-    DownloadButton()
-    FreeButton()
+    DownloadButton(Modifier)
+    FreeButton(Modifier)
 }
 
 @Composable
-fun DownloadButton(){
+fun DownloadButton(modifier: Modifier){
     Button(onClick = { /*TODO*/ },
-        modifier= Modifier.size(50.dp),  //avoid the oval shape
+        modifier= modifier.size(50.dp),  //avoid the oval shape
         shape = CircleShape,
         border= BorderStroke(1.dp, Color.Black),
         contentPadding = PaddingValues(0.dp),  //avoid the little icon
@@ -48,9 +48,9 @@ fun DownloadButton(){
 }
 
 @Composable
-fun FreeButton(){
+fun FreeButton(modifier: Modifier){
     Button(onClick = { /*TODO*/ },
-        modifier= Modifier.size(50.dp),  //avoid the oval shape
+        modifier= modifier.size(50.dp),  //avoid the oval shape
         shape = CircleShape,
         border= BorderStroke(1.dp, Color.Black),
         contentPadding = PaddingValues(0.dp),  //avoid the little icon
@@ -58,5 +58,32 @@ fun FreeButton(){
     ) {
        Text(text = "Free",
            fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(5.dp))
+    }
+}
+@Composable
+fun HomeButton(modifier: Modifier){
+    Button(onClick = { /*TODO*/ },
+        modifier= modifier.size(50.dp),  //avoid the oval shape
+        shape = CircleShape,
+        border= BorderStroke(1.dp, Color.Black),
+        contentPadding = PaddingValues(0.dp),  //avoid the little icon
+        colors = ButtonDefaults.buttonColors(DownloadButtonBackground)
+    ) {
+        Image(painter = painterResource(id = R.drawable.baseline_home_24),
+            contentDescription = "")
+    }
+}
+@Composable
+fun NoAdsButton(modifier: Modifier){
+    Button(onClick = { /*TODO*/ },
+        modifier= modifier.size(50.dp),  //avoid the oval shape
+        shape = CircleShape,
+        border= BorderStroke(1.dp, Color.Black),
+        contentPadding = PaddingValues(0.dp),  //avoid the little icon
+        colors = ButtonDefaults.buttonColors(FreeButtonBackground)
+    ) {
+        Text(text = "No Ads",
+            fontWeight = FontWeight.ExtraBold, modifier = Modifier)
+
     }
 }
