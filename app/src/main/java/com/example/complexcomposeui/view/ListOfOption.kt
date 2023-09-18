@@ -29,7 +29,7 @@ fun ListOfOption() {
             NoAdsButton(modifier = Modifier.padding(10.dp))
         }
         LazyRow(
-            modifier = Modifier.fillMaxSize().padding(vertical = 20.dp, horizontal = 100.dp)
+            modifier = Modifier.fillMaxSize().padding(vertical = 20.dp)
         ){
             items(getList()){
                     img ->
