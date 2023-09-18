@@ -13,11 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 
-@Preview(showBackground = true)
 @Composable
-fun ListOfOptionDemo(){
+fun ListOfOptionDemo(navController: NavController){
 
     ListOfOption()
 }
