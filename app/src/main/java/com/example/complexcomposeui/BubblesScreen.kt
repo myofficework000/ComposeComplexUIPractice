@@ -4,11 +4,16 @@ import android.widget.ImageButton
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -31,14 +36,42 @@ fun LazyRowWithAlternatingOffsetButtons() {
         R.drawable.bubble9,
         R.drawable.bubble10,
     )
-    LazyRow(
-        horizontalArrangement = Arrangement.spacedBy(50.dp)
+    Column(
+        modifier = Modifier.fillMaxSize()
     ) {
-        itemsIndexed(imageLst) { index, imageResId ->
-            ImageButtonItem(imageResource = imageResId, index = index)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            IconButton(
+                onClick = { /*TODO*/ }
+            ) {
+                Image(painter = painterResource(id =R.drawable.baseline_login_24), contentDescription = null)
+            }
+            IconButton(
+                onClick = { /*TODO*/ }
+            ) {
+                Image(painter = painterResource(id =R.drawable.baseline_stars_24), contentDescription = null)
+            }
+            Spacer(modifier = Modifier.weight(1f))
+            IconButton(
+                onClick = { /*TODO*/ }
+            ) {
+                Image(painter = painterResource(id =R.drawable.baseline_build_circle_24), contentDescription = null)
+            }
+        }
+        
+        Spacer(modifier = Modifier.size(50.dp))
+
+        LazyRow(
+            modifier = Modifier.fillMaxSize(),
+            horizontalArrangement = Arrangement.spacedBy(50.dp)
+        ) {
+            itemsIndexed(imageLst) { index, imageResId ->
+                ImageButtonItem(imageResource = imageResId, index = index)
+            }
         }
     }
-
 }
 
 @Composable
@@ -52,7 +85,7 @@ fun ImageButtonItem(imageResource: Int, index: Int) {
         Image(
             painter = painterResource(id = imageResource),
             contentDescription = null,
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.Inside,
             modifier = Modifier.fillMaxSize()
         )
     }
